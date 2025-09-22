@@ -5,35 +5,35 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CICSOFT_AI - AI-Powered SaaS Platform",
+  title: "LaunchKit - Next.js SaaS Landing Page",
   description:
-    "Revolutionary AI-powered SaaS platform built with Next.js 15, TypeScript, and modern best practices. Experience the future of intelligent software solutions.",
+    "Production-ready Next.js 15 SaaS landing page built with TypeScript, Tailwind CSS, and modern best practices. Ready for Vercel deployment.",
   keywords: [
-    "AI",
-    "SaaS",
     "Next.js",
     "TypeScript",
     "Tailwind CSS",
-    "Machine Learning",
-    "Artificial Intelligence",
+    "SaaS",
+    "Landing Page",
+    "React",
+    "Vercel",
   ],
-  authors: [{ name: "CICSOFT_AI Team" }],
-  creator: "CICSOFT_AI",
+  authors: [{ name: "LaunchKit Team" }],
+  creator: "LaunchKit",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://cicsoft.ai",
-    title: "CICSOFT_AI - AI-Powered SaaS Platform",
+    url: "https://launchkit.dev",
+    title: "LaunchKit - Next.js SaaS Landing Page",
     description:
-      "Revolutionary AI-powered SaaS platform built with Next.js 15, TypeScript, and modern best practices.",
-    siteName: "CICSOFT_AI",
+      "Production-ready Next.js 15 SaaS landing page built with TypeScript, Tailwind CSS, and modern best practices.",
+    siteName: "LaunchKit",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CICSOFT_AI - AI-Powered SaaS Platform",
+    title: "LaunchKit - Next.js SaaS Landing Page",
     description:
-      "Revolutionary AI-powered SaaS platform built with Next.js 15, TypeScript, and modern best practices.",
-    creator: "@cicsoft_ai",
+      "Production-ready Next.js 15 SaaS landing page built with TypeScript, Tailwind CSS, and modern best practices.",
+    creator: "@launchkit_dev",
   },
 };
 

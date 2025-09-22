@@ -1,18 +1,16 @@
-# CICSOFT_AI - Next.js SaaS Application
+# LaunchKit AI - Next.js 15 SaaS Landing Page
 
-A complete, production-ready Next.js 15 SaaS application built with TypeScript, Tailwind CSS, and modern best practices.
+A complete, production-ready Next.js 15 SaaS landing page built with TypeScript, Tailwind CSS, and modern best practices. Features v0.dev UI components and working API routes, ready for immediate deployment on Vercel.
 
 ## ✨ Features
 
 - **⚡ Next.js 15** - Latest App Router with React Server Components
 - **🔷 TypeScript** - Fully typed codebase with strict configuration
-- **🎨 Tailwind CSS** - Modern utility-first CSS framework
-- **🔐 Authentication Ready** - Prepared for NextAuth.js integration
-- **💳 Payment Ready** - Stripe integration structure in place
-- **🗄️ Database Ready** - Prisma ORM setup ready
+- **🎨 Tailwind CSS v4** - Modern utility-first CSS framework
+- **🧩 v0.dev UI Components** - Beautiful components migrated from v0.dev
+- **🔌 API Routes** - Working contact form and health check endpoints
 - **📱 Responsive Design** - Mobile-first responsive layout
 - **🌙 Dark Mode** - Built-in theme switching
-- **🧩 UI Components** - Beautiful components with Radix UI
 - **📊 Analytics** - Vercel Analytics integration
 - **🚀 Production Ready** - Optimized for Vercel deployment
 
@@ -23,13 +21,13 @@ A complete, production-ready Next.js 15 SaaS application built with TypeScript, 
 - Node.js 18+ and npm/pnpm/yarn
 - Git
 
-### Setup Instructions
+### Local Development
 
 1. **Clone the repository**
 
    ```bash
-   git clone <your-repo-url>
-   cd cicsoft-ai
+   git clone https://github.com/your-username/launchkit-ai.git
+   cd launchkit-ai
    ```
 
 2. **Install dependencies**
@@ -38,34 +36,39 @@ A complete, production-ready Next.js 15 SaaS application built with TypeScript, 
    npm install
    ```
 
-3. **Run the development server**
+3. **Start development server**
 
    ```bash
    npm run dev
    ```
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see your application.
+4. **Open browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 🏗️ Build and Deploy
+### Production Build
 
-### Local Build
+1. **Build for production**
 
-To build the application for production:
+   ```bash
+   npm run build
+   ```
 
-```bash
-npm run build
-```
+2. **Start production server**
 
-To start the production server locally:
+   ```bash
+   npm run start
+   ```
 
-```bash
-npm run start
-```
+3. **Test production build locally**
+   ```bash
+   npm run build && npm run start
+   ```
 
-### Deploy on Vercel
+## 🚀 Deploy on Vercel
 
-1. **Push your code to GitHub**
+### Method 1: GitHub Integration (Recommended)
+
+1. **Push to GitHub**
 
    ```bash
    git add .
@@ -76,33 +79,32 @@ npm run start
 2. **Deploy on Vercel**
    - Visit [vercel.com](https://vercel.com)
    - Click "New Project"
-   - Import your GitHub repository
+   - Import your GitHub repository `launchkit-ai`
    - Vercel will automatically detect Next.js and deploy
-   - Your app will be live at `https://your-project-name.vercel.app`
+   - Your app will be live at `https://launchkit-ai.vercel.app`
 
-### Environment Variables
+### Method 2: Vercel CLI
 
-For production deployment, set these environment variables in Vercel:
-
-```env
-NEXTAUTH_URL=https://your-domain.vercel.app
-NEXTAUTH_SECRET=your-secret-here
+```bash
+npm i -g vercel
+vercel login
+vercel --prod
 ```
 
 ## 📁 Project Structure
 
 ```
-cicsoft-ai/
+launchkit-ai/
 ├── app/                  # Next.js App Router
 │   ├── api/             # API routes
-│   │   ├── contact/     # Contact form API
-│   │   └── health/      # Health check API
+│   │   ├── contact/     # Contact form endpoint
+│   │   └── health/      # Health check endpoint
 │   ├── globals.css      # Global styles
 │   ├── layout.tsx       # Root layout
 │   └── page.tsx         # Home page
 ├── components/          # React components
-│   ├── ui/             # Reusable UI components
-│   ├── Contact.tsx     # Contact form
+│   ├── ui/             # Reusable UI components (v0.dev)
+│   ├── Contact.tsx     # Contact form with API integration
 │   ├── FAQ.tsx         # FAQ section
 │   ├── Features.tsx    # Features showcase
 │   ├── Footer.tsx      # Footer component
@@ -122,12 +124,14 @@ cicsoft-ai/
 
 ### Health Check
 
-- **GET** `/api/health` - Returns `{ status: "ok" }`
-- Use for monitoring and health checks
+- **GET** `/api/health`
+- Returns: `{"status":"ok"}`
+- Usage: Monitoring and health checks
 
 ### Contact Form
 
 - **POST** `/api/contact`
+- Body:
   ```json
   {
     "name": "John Doe",
@@ -135,34 +139,12 @@ cicsoft-ai/
     "message": "Hello world"
   }
   ```
-- Returns `{ ok: true }` on success
-- Includes validation and error handling
+- Returns: `{"ok":true}` on success
+- Features: Validation, error handling, server-side logging
 
-## 🎨 Customization
+## 🧪 Testing
 
-### Update Branding
-
-1. Replace "CICSOFT_AI" in components with your brand name
-2. Update logo in `components/Navbar.tsx`
-3. Modify metadata in `app/layout.tsx`
-4. Replace favicon and images in `public/`
-
-### Styling
-
-- **Colors**: Update CSS variables in `app/globals.css`
-- **Components**: Modify Tailwind classes in component files
-- **Theme**: Customize dark/light mode in `tailwind.config.ts`
-
-## 📝 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 🧪 Testing the Application
-
-### Test API Routes
+### Test API Endpoints
 
 ```bash
 # Health check
@@ -174,51 +156,61 @@ curl -X POST -H "Content-Type: application/json" \
   http://localhost:3000/api/contact
 ```
 
-### Test Build
+### Test Build Process
 
 ```bash
+# Clean build test
+rm -rf .next
 npm run build
 npm run start
 ```
 
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server (localhost:3000)
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🎨 Customization
+
+### Update Branding
+
+1. Replace "LaunchKit AI" in components with your brand
+2. Update logo in `components/Navbar.tsx`
+3. Modify metadata in `app/layout.tsx`
+4. Replace images in `public/`
+
+### Styling
+
+- **Colors**: Update CSS variables in `app/globals.css`
+- **Components**: Modify Tailwind classes in component files
+- **Theme**: Customize dark/light mode in `tailwind.config.ts`
+
 ## 🚀 Production Checklist
 
-- ✅ All dependencies listed in package.json
-- ✅ Config files properly set up (tsconfig.json, tailwind.config.ts, postcss.config.mjs)
-- ✅ API routes working (/api/health, /api/contact)
-- ✅ Contact form sends POST requests with loading/success feedback
-- ✅ Build process completes successfully
+- ✅ Next.js 15 with App Router
+- ✅ TypeScript configuration
+- ✅ Tailwind CSS v4 setup
+- ✅ v0.dev UI components migrated
+- ✅ API routes (/api/health, /api/contact) working
+- ✅ Contact form with full integration
+- ✅ Production build successful
 - ✅ Ready for Vercel deployment
+- ✅ .gitignore includes .env\* patterns
+- ✅ All required dependencies in package.json
 
 ## 📚 Tech Stack
 
 - **Framework**: Next.js 15 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: Radix UI
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS v4
+- **UI Components**: Radix UI (from v0.dev)
 - **Icons**: Lucide React
 - **Fonts**: Geist Sans & Mono
 - **Analytics**: Vercel Analytics
-- **Deployment**: Vercel (recommended)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-- 📧 Email: support@cicsoft.ai
-- 💬 GitHub Issues: [Create an issue](https://github.com/your-username/cicsoft-ai/issues)
-- 📖 Documentation: [View docs](https://cicsoft.ai/docs)
+- **Deployment**: Vercel
 
 ---
 
-Built with ❤️ using Next.js and Tailwind CSS
+Built with ❤️ using Next.js 15, TypeScript, and Tailwind CSS
